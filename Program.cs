@@ -18,6 +18,7 @@ namespace Samlingsklasser
             Console.WriteLine("5. Tärningskast med SortedList (Övning 1).");
             Console.WriteLine("6. Queue-exempel.");
             Console.WriteLine("7. Stack-exempel.");
+            Console.WriteLine("8. Övning 2");
 
             //Läs in menyval
             Console.Write("Ange siffra för vad du vill göra: ");
@@ -46,11 +47,46 @@ namespace Samlingsklasser
                 case "7":
                     StackExempel();
                     break;
+                case "8":
+                    Övning2();
+                    break;
             }
 
             Console.ReadKey();
         }
 
+        static void Övning2()
+        {
+            {
+                //Det här är övning 2 med värdet double.
+
+                List<double> övning2 = new List<double>();
+
+                //Skapar en for-metod som kommer hjälpa oss att upprepa programmet.
+                for (int i = 0; i < 1000000000; i++)
+                {
+                    //Användare får besvara frågan "Mata in ett tal"
+                    Console.Write("Mata in ett tal:");
+                    //Svaret som användaren anger omvandlas från string till double.
+                    double tal = double.Parse(Console.ReadLine());
+                    //Här måste vi använda oss av if-satsen eftersom talet 0 stänger programmet om den anges.
+                    if (tal == 0)
+                    {
+                        //När man väl matar in 0 då stängs programmet.
+                        Environment.Exit(1);
+                    }
+                    //else betyder att den tar hänsyn ifall 0 inte matas in då visar den nåt annat vid det tillfället.
+                    else
+                    {
+                        //Här visar jag att när användaren har använt sig av ett tal så adderas den.
+                        övning2.Add(tal);
+                        //Här kommer svaret av programmet vi har skrivit. Det ska även skriva medelvärdet i listan.
+                        Console.WriteLine("Medelvärde:" + övning2.Average());
+                    }    
+                }
+            }
+
+        }
         static void DictionaryExempel()
         {
             //Skapa en dictionary med string som nyckel och int som värde
